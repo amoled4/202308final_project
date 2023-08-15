@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.BoardNoticeDAO">
+	<select id="selectNoticeList" resultType="com.myweb.www.domain.BoardNoticeVO">
+		select * from board_notice where bn_isDel = 0 order by bn_number desc
+	</select>
+	
+	<insert id="insertNotice">
+		insert into board_notice(bn_title, bn_writer, bn_content)
+		values (#{bn_title}, #{bn_writer}, #{bn_content})
+	</insert>
+	
+	<select id="selectNoticeDetail" resultType="com.myweb.www.domain.BoardNoticeVO">
+		select * from board_notice where bn_number=#{bn_number}
+	</select>
+	
+	<update id="updateNotice">
+		update board_notice set bn_title=#{bn_title}, bn_content=#{bn_content}, bn_mod_date=now()
+		where bn_number=#{bn_number}
+	</update>
+	
+	<update id="updateNoticeIsDel">
+		update board_notice set bn_isDel=1 where bn_number=#{bn_number}
+	</update>
+</mapper>

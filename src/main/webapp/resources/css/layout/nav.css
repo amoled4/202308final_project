@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+nav {
+    position: relative;
+    height: 45px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    display: flex;
+    justify-content: center;
+}
+
+nav #navContainer {
+	width: 1024px;	
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* 네비 메뉴 (게시판, 문의, 공지사항) */
+nav #menuContainer {
+    margin-left: 30px;
+    display: flex;
+    justify-content: space-between;
+    width: 280px;
+}
+
+#menuContainer img {
+  margin-left: -8px;
+}
+
+nav #menuContainer a { 
+	color: black;
+	text-decoration: none;
+} nav #menuContainer a:hover {
+	color: #C97FE8;
+	font-weight: 550;
+}

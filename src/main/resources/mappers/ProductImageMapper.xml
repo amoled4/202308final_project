@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.ProductImageDAO">
+
+	<insert id="insertProductImage">
+		insert into product_image(pi_uuid, p_number, pi_name, pi_dir)
+		values (#{pi_uuid}, #{p_number}, #{pi_name}, #{pi_dir})
+	</insert>
+
+	<select id="getlistFile" resultType="com.myweb.www.domain.ProductImageVO">
+		select * from product_image where p_number=#{p_number}
+	</select>
+	
+	<select id="selectFileList" resultType="com.myweb.www.domain.ProductImageVO">
+		select * from product_image where p_number=#{p_number}
+	</select>
+	
+	<select id="selectFile" resultType="com.myweb.www.domain.ProductImageVO">
+		select * from product_image where p_number=#{p_number}
+	</select>
+	
+	<delete id="deleteFile">
+		delete from product_image where pi_uuid=#{pi_uuid}
+	</delete>
+	
+	<!-- 작성자 : 안세호(Member/detail.jsp 상품 리스트 띄우기 위해 사용) -->
+	<select id="selectImagesByProduct" resultType="com.myweb.www.domain.ProductImageVO">
+	    SELECT * FROM product_image
+	    WHERE p_number = #{p_number}
+	</select>
+	
+	
+</mapper>
+
+
+
+

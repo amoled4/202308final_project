@@ -1,0 +1,485 @@
+@charset "UTF-8";
+
+.bodyPage {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 280px;
+	max-width: 1024px;
+	min-height: 710px;
+}
+
+/* 전체 컨테이너 */
+.entireContainer {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	word-break: break-all;
+}
+
+.Container {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	border-left: 1px solid rgb(246, 246, 246);
+	border-right: 1px solid rgb(246, 246, 246);
+}
+
+hr {
+	width: 100%;
+}
+
+/* 채팅 리스트 컨테이너 */
+.listContainer {
+	width: 50%;
+	height: 710px;
+	border-right: 1px solid rgb(246, 246, 246);
+}
+
+.listContainer1 {
+	width: 100%;
+	height: 100%;
+	padding-bottom: 0px;
+	background-color: rgb(255, 255, 255);
+}
+
+.chatListContainer {
+	height: 630px;
+	overflow-y: scroll;
+}
+
+/* 채팅 리스트 상단 */
+.listBox {
+	background-color: white;
+	height: 80px;
+	font-size: 30px;
+	line-height: 80px;
+	padding: 0 30px;
+	border-bottom: 1px solid rgb(238, 238, 238);
+}
+
+.chatList {
+	position: relative;
+	cursor: pointer;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	padding: 0px 20px;
+}
+
+.chatList:hover {
+	background-color: rgb(246, 246, 246);
+}
+
+.chatListCount {
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	border-radius: 100%;
+	background: rgb(255, 84, 66);
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: 8px;
+	left: 8px;
+	font-size: 13px;
+}
+
+.chatListImg {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	overflow: hidden;
+	/* border: 1px solid gray; */
+}
+
+.chatListImg img {
+	width: 50px;
+	height: 50px;
+}
+
+.chatListText {
+	padding: 0 20px;
+}
+
+.chatListTextUp {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: bold;
+	height: 25px;
+}
+
+.chatListTextDown {
+	font-size: 13px;
+	color: #bbb;
+}
+
+/*  */
+.chatList1 {
+	margin-right: 10px;
+	position: relative;
+}
+
+.chatList2 {
+	position: relative;
+	min-width: 50px;
+	height: 50px;
+}
+
+.chatList3 {
+	min-width: 50px;
+	width: 50px;
+	height: 50px;
+	object-fit: cover;
+	border-radius: 50%;
+	border: none;
+}
+
+
+.chatListText1 {
+	width: 100%;
+}
+
+.chatListText2 {
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+}
+
+.chatListText3 {
+	width: fit-content;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+
+.chatListText4 {
+	display: flex;
+	margin-top: 6px;
+}
+
+.chatListText5 {
+	width: 100%;
+	display: flex;
+	font-size: 12px;
+	line-height: 1.3;
+	color: rgb(178, 178, 178);
+}
+
+.chatListText6 {
+	width: fit-content;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+
+.chatListText7 {
+	width: 100%;
+	max-width: fit-content;
+	min-width: fit-content;
+}
+
+/* 채팅방 컨테이너 */
+.roomContainer {
+	width: 50%;
+	height: 710px;
+	background-color: rgb(246, 246, 246);
+}
+
+#chatDisplayNone {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.roomContainer1 {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+/* roomTopBox */
+.roomTopBox {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	border-bottom: 1px solid gray;
+}
+
+#backBtn {
+	cursor: pointer;
+}
+
+.roomTopBox3 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.roomTopBox-nick {
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.roomTopBox-online {
+	font-size: 12px;
+	color: rgb(153, 153, 153);
+}
+
+/* MidBoxEx (판매글 정보) */
+.roomMidBoxEx {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid gray;
+	padding: 20px;
+}
+
+.item-image {
+	min-width: 80px;
+	height: 80px;
+	margin-right: 15px;
+	border: 1px solid gray;
+}
+
+.item-info {
+	display: flex;
+	flex-direction: column;
+	margin-right: 10px;
+	font-weight: bold;
+	font-size: 0.8em;
+}
+
+.trade-title {
+	flex: 1 1 auto;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+/* MidBox (대화 내용) */
+#roomMidBox {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	perspective: 1px;
+	padding: 20px;
+	overflow-y: scroll;
+}
+
+.sendMessage {
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: flex-end;
+	margin: 8px 0;
+}
+
+.sendMessage .chatMessage {
+	background-color: #C97FE8;
+	color: white;
+	padding: 5px 10px;
+	border-radius: 10px;
+	max-width: 400px;
+}
+
+.receiveMessage {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	margin: 8px 0;
+}
+
+.receiveMessage .chatMessage {
+	background-color: lightgrey;
+	padding: 5px 10px;
+	border-radius: 10px;
+	max-width: 400px;
+}
+
+.chatImage {
+	width: 300px;
+	margin: 8px 3px;
+	border-radius: 10px;
+	position: relative;
+	display: flex;
+	overflow: hidden;
+}
+
+.chatImage img {
+	width: 100%;
+}
+
+.chatTime {
+	font-size: 13px;
+	color: #bbb;
+	width: 50px;
+	text-align: center;
+}
+
+/* 하단 메세지 입력 및 전송 / modal 기능 */
+#roomBotBox {
+	border-top: 1px solid rgb(246, 246, 246);
+	background-color: lightgrey;
+	display: flex;
+	justify-content: center;
+	padding: 15px 0;
+}
+
+#roomInputBox {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+#roomInputRight {
+	background: white;
+	border-radius: 25px;
+	height: 50px;
+	width: 420px;
+	display: flex;
+	align-items: center;
+	padding: 0 15px;
+}
+
+#chatInput {
+	border: none;
+	flex: 1 1 auto;
+	height: 100%;
+	font-size: 17px;
+	background: none;
+	outline: none;
+}
+
+#chatSendBtn {
+	cursor: pointer;
+}
+
+.roomBotBox1 {
+	display: flex;
+	align-items: flex-end;
+	margin: 12px 20px;
+}
+
+.roomBotBox2 {
+	cursor: pointer;
+	margin-right: 12px;
+	padding-bottom: 10px;
+}
+
+.roomBotBox3 {
+	position: relative;
+	display: flex;
+	align-items: flex-end;
+	-webkit-box-pack: center;
+	justify-content: center;
+	background-color: rgb(250, 250, 250);
+	border-radius: 24px;
+	width: 100%;
+	max-height: 120px;
+}
+
+.roomBotBox4 {
+	padding: 8px 0px;
+	width: 100%;
+}
+
+.roomBotBoxText {
+	height: 19px
+}
+
+textarea {
+	appearance: none;
+	outline: none;
+	border: none;
+	line-height: 1.2;
+	background: transparent;
+	width: 100%;
+	max-height: 96px;
+	letter-spacing: -0.5px;
+	padding: 0 13px 0 20px;
+	resize: none;
+}
+
+.roomBotBoxBtn {
+	position: relative;
+	border-top: 1px solid rgb(246, 246, 246);
+	display: flex;
+	align-items: flex-end;
+	margin: 12px 20px;
+	cursor: pointer;
+}
+
+.dp_none {
+	display: none !important;
+}
+
+/* Modal */
+
+#modalBtn {
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 999;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+	background-color: #fff;
+	margin: 15% auto;
+	padding: 15px;
+	border-radius: 5px;
+	max-width: 430px;
+}
+
+.modal-header {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.close-modal {
+	cursor: pointer;
+	font-size: 24px;
+}
+
+.modal-body {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.option {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 15px;
+}
+
+.larger-icon {
+	font-size: 36px;
+	line-height: 1;
+	margin-bottom: 8px;
+	color: rgb(201, 127, 232);
+	cursor: pointer;
+}

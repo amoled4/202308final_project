@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.BoardLocationCommentDAO">
+	<insert id="insertLocationComment">
+		insert into board_location_comment(bl_number, blc_writer, blc_content)
+		values (#{bl_number}, #{blc_writer}, #{blc_content})
+	</insert>
+	
+	<select id="selectLocationCommentList" resultType="com.myweb.www.domain.BoardLocationCommentVO">
+		select * from board_location_comment where bl_number=#{bl_number}
+	</select>
+</mapper>

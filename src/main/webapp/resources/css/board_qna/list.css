@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+	#container {
+	  margin-top: 20px;
+	  margin-bottom :50px;
+	}
+	
+	#inner-box {
+	  width: 1024px;
+	  margin: 0 auto;
+	 
+	}
+	
+	.qna-select, .qna-content {
+	    margin-bottom: 8px;
+	 }
+	
+	#container .border-gray {
+	  width: 100%;
+	  box-sizing: border-box;
+	  border: 1px solid #ccc;
+	  border-radius: 4px;
+	  padding: 6px 12px;
+	  font-size: 14px;
+	  margin-bottom: 15px; /* 여백 추가 */
+	}
+	
+	select.border-gray:focus {
+	  outline: none;
+	  /*border-color: #c97fe8;*/	  
+	}
+	
+	select.border-gray optgroup {
+	  padding-top: 10px;
+	  padding-bottom: 10px;
+	}
+	
+	select.border-gray option {
+	  padding-top: 10px;
+	  padding-bottom: 10px;
+	}
+	
+	#inner-box h3 {
+	  font-size : 26px;
+	  margin-top: 15px;
+	  margin-bottom: 30px;
+	}
+	
+	#inner-box:not(:first-child) {
+	  margin-top: 5px;
+	}
+	  	
+	.background-purple {
+    background-color: #C97FE8;
+    color: white;
+  	}
+  	
+  	.attachment-text {
+    color: #666666;
+    font-size: 12px;
+ 	}
+ 	
+ 	.attachment-text:first-child {
+    color: #C97FE8;
+    font-size: 12px;
+    font-weight:700;
+ 	}
+ 	
+    .attachment-text:nth-child(2) {
+      font-size: 12px;
+      font-weight: 700;
+    }
+    
+    /* 검색 관련 */
+	#searchBox {
+	    height: 30px;
+	    width: 500px;
+	    display: flex;
+	    justify-content: space-between;
+	    overflow: hidden;
+	    margin-top:4px;
+	    margin-bottom:40px;
+	}
+	
+	#searchBox #searchIcon {
+	    width: 33px;
+	    height: 33px;
+	    color: white;
+	    background-color: #ccc;
+	    text-align: center;
+	    line-height: 33px;
+	    margin-top: -8px;
+	    margin-left: -12px;
+	}
+		
+	#searchBox #searchInput {
+	    border: none;
+ 		width: 100%;
+ 		margin-left: 0;
+	} 
+	
+	#searchBox #searchInput:focus {
+		outline: none;
+	}
+	
+	/*테이블*/
+	#requests{
+		font-size : 14px;
+		margin-bottom: 40px;
+	}
+	
+	.table-light thead {
+   		background-color: #c97fe8;
+  	}
+  	
+  	/* 페이지네이션 */
+	#page-wrap{
+		display: flex;
+ 		justify-content : center;
+	}
+	
+	.page-btn{
+		width: 30px;
+		height: 30px;
+		padding: 2px 0;
+		margin: 0 2px;
+		text-align: center;
+		cursor: pointer;
+		
+	}
+	

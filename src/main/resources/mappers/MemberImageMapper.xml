@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.MemberImageDAO">
+	<insert id="insertMemberImage">
+		insert into member_image(mi_uuid, mi_dir, m_number, mi_name)
+		values (#{mi_uuid}, #{mi_dir}, #{m_number}, #{mi_name})
+	</insert>
+	
+	<select id="selectMemberImage" resultType="com.myweb.www.domain.MemberImageVO">
+    	select * from member_image where m_number = #{m_number}
+	</select>
+	
+	<!-- 프로필사진 수정 -->
+	<update id="updateMemberImage">
+	    update member_image
+	    set 
+	    mi_uuid = #{mi_uuid},
+	    mi_dir = #{mi_dir},
+	    mi_name = #{mi_name}
+	    where m_number = #{m_number}
+	</update>
+	
+	<!-- 작성자 : 김경아 -->
+	<select id="selectMivo" resultType="com.myweb.www.domain.MemberImageVO">
+		select * from member_image where m_number=#{pr_seller}
+	</select>
+	<select id="selectRvMivo" resultType="com.myweb.www.domain.MemberImageVO">
+		select * from member_image where m_number=#{pr_buyer}
+	</select>
+	<select id="getBoardLocationmImage" resultType="com.myweb.www.domain.MemberImageVO">
+		select * from member_image where m_number=#{bl_m_number}
+	</select>
+
+</mapper>

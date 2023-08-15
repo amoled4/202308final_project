@@ -1,0 +1,186 @@
+@charset "UTF-8";
+
+header {
+    position: relative;
+    height: 100px;
+    /*border-bottom: 1px solid gray;*/
+    display: flex;
+    justify-content: center;
+}
+
+header #headerContainer {
+	width: 1024px;
+	padding: 20px 0;
+	display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* 로고 (이미지 및 텍스트) */
+header #logoContainer {
+	display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+header #logoImage {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 8px;
+}
+
+header #logoText {
+    /*padding-left: 8px;*/
+    font-weight: bold;
+    font-size: 28px;
+    color: #C97FE8;
+}
+
+/* 검색 관련 */
+header #searchContainer {
+    height: 35px;
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+header #searchContainer #searchIcon {
+    width: 35px;
+    height: 35px;
+    color: white;
+    background-color: #C97FE8;
+    text-align: center;
+    line-height: 33px;
+}
+
+
+/* border */ 
+.border-purple {
+	border: 2px solid #C97FE8;
+	border-radius: 5px;
+	cursor: pointer;
+} input.border-gray:focus {
+	outline: none;
+	border-color: #c97fe8;
+	box-shadow: 0 0 5px #c97fe8;
+} textarea.border-gray:focus {
+	outline: none;
+	border-color: #c97fe8;
+	box-shadow: 0 0 5px #c97fe8;
+}
+
+header #searchContainer #searchInput {
+    border: none;
+    width: 90%;
+} header #searchContainer #searchInput:focus {
+	outline: none;
+}	
+
+/* 회원관련 (로그인/회원가입 등) */
+header #memberContainer {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    /*align-items: flex-start;*/
+    width: 130px;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+header #memberContainer1 {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    width: 270px;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+header #memberContainer a, #memberContainer1 a {
+	color: #666;
+	text-decoration: none;
+  position: relative;
+} header #memberContainer a:hover, #memberContainer1 a:hover {
+	color: #C97FE8;
+	font-weight: 550;
+}
+
+header .notification {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 250px;
+  display: flex;
+  align-items: center;
+  border: 1px solid gray; 
+  border-radius: 10px;
+  justify-content: center;
+  padding: 5px;
+}   
+
+/*메뉴 드롭다운*/
+
+.menu:after{
+	display:block; 
+	content:''; 
+	clear:both;
+}
+.menu > li{
+	position:relative; 
+	float:left; 
+	list-style-type: none;
+}
+.menu > li > a{
+	display:block; 
+	text-decoration: none;
+	color: black;
+}
+.menu .depth_1 {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none; /* 초기에는 숨김 */
+  padding-top: 20px;
+  z-index: 2;
+}
+.menu li:hover > .depth_1 {
+  display: block; /* 호버 시에만 보여지도록 설정 */
+}
+.menu .depth_1 a{
+	display:block; 
+	padding:5px; 
+	background:white;
+	white-space: nowrap;
+	text-decoration: none;
+}
+.menu .depth_1 li {
+  display: inline-block;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.menu .depth_1 li a {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  height: 40px; 
+  white-space: nowrap; /* 텍스트가 한 줄에 나오도록 설정 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border:1px solid rgb(238, 238, 238);
+  text-decoration: none;
+  font-size:14px;
+  padding-left: 15px;
+  color: black;
+} .menu .depth_1 li:hover a {
+  background-color: #c97fe8;
+  color: white;
+}
+
+.menu .depth_1 li:not(:first-child) a {
+  border-top: none;
+}
+
