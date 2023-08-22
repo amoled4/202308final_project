@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.ChatDAO">
+	<select id="selectChatRoom" resultType="com.myweb.www.domain.ChatRoomVO">
+		select * from chat_room 
+		where cr_seller = #{m_number} or cr_buyer = #{m_number}
+		order by cr_send_date desc;
+	</select> 
+	
+	<select id="selectLastMessage" resultType="String">
+		select cm_content from chat_message where cr_number = #{cr_number} 
+		order by cm_number desc limit 1;
+	</select>
+	
+	<select id="selectMessage" resultType="com.myweb.www.domain.ChatMessageVO">
+		select * from chat_message where cr_number = #{cr_number}
+		order by cm_number asc;
+	</select>
+	
+	<select id="selectBuyer" resultType="int">
+		select cr_buyer from chat_room where cr_number = #{cr_number};
+	</select>
+	
+	<select id="selectSeller" resultType="int">
+		select cr_seller from chat_room where cr_number = #{cr_number};
+	</select>
+	
+	<insert id="insertMessage">
+		insert into chat_message(cr_number, cm_sender, cm_content, cm_type)
+		value(#{cr_number}, #{cm_sender}, #{cm_content}, #{cm_type});
+	</insert>
+	
+	<update id="updateSendDate">
+		update chat_room set cr_send_date = now() where cr_number = #{cr_number};
+	</update>
+	
+	<insert id="insertChatRoom">
+		insert into chat_room(cr_number, cr_seller, cr_buyer)
+		select #{cr_number}, #{cr_seller}, #{cr_buyer} from dual
+		where not exists(
+			select cr_number, cr_seller, cr_buyer from chat_room 
+			where cr_number = #{cr_number} and cr_seller = #{cr_seller} and cr_buyer = #{cr_buyer}
+		);
+	</insert>
+	
+	<update id="updateReadDate">
+		update chat_message set cm_read_date = now() 
+		where cr_number = #{cr_number}
+			and cm_sender != #{m_number}
+			and cm_read_date is null;
+	</update>
+	
+	<select id="countNotReadMessage" resultType="int">
+		select count(*) from chat_message 
+		where cr_number = #{crvo.cr_number} and 
+			cm_read_date is null and 
+			cm_sender != #{sesMvo.m_number};
+	</select>
+	
+	<insert id="insertChatImage">	
+		insert into chat_message_image(cmi_uuid, cm_number, cmi_name, cmi_dir)
+		values (
+			#{cmi_uuid},
+			(select max(cm_number) from chat_message),
+			#{cmi_name},
+			#{cmi_dir}
+		);
+		
+		<selectKey resultType="int" keyProperty="cm_number" order="AFTER">
+		    select max(cm_number) from chat_message;
+		</selectKey>
+	</insert>
+	
+	<select id="selectImage" resultType="com.myweb.www.domain.ChatMessageImageVO">
+		select * from chat_message_image where cm_number = #{cm_number};
+	</select>
+	
+	<!-- 작성자 : 김경아 -->
+	<select id="getChat" resultType="com.myweb.www.domain.ChatRoomVO">
+		select * from chat_room where cr_number=#{p_number}
+	</select>
+</mapper>

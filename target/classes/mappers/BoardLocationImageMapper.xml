@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.BoardLocationImageDAO">
+	<select id="selectBoardLocationFile" resultType="com.myweb.www.domain.BoardLocationImageVO">
+		select * from board_location_file where bl_number=#{bl_number}
+	</select>
+	
+	<insert id="insertBoardLocationImage">
+		insert into board_location_file(blf_uuid, bl_number, blf_name, blf_dir)
+		values (#{blf_uuid}, #{bl_number}, #{blf_name}, #{blf_dir})
+	</insert>
+	
+	<delete id="deleteFile">
+		delete from board_location_file where blf_uuid=#{blf_uuid}
+	</delete>
+	
+</mapper>

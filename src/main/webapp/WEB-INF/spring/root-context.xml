@@ -14,9 +14,9 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost/final_project" />
+		<property name="jdbcUrl" value="jdbc:mysql://43.200.233.121:8080/final_project" />
 		<property name="username" value="dba" />
-		<property name="password" value="mysql" />		
+		<property name="password" value="mysql" />
 	</bean>
 	
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">

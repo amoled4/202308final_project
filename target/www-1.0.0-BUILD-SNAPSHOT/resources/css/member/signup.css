@@ -1,0 +1,238 @@
+@charset "UTF-8";
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#innerContainer {
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px 0;
+}
+
+#innerContainer>*:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+#innerContainer h1 {
+	font-size: 25px;	
+}
+
+#innerContainer h2 {
+	font-size: 20px;	
+	margin-bottom: 8px;
+}
+
+#innerContainer h6 {
+	margin-bottom: 8px;
+	color: #888;
+	font-weight: normal;
+	font-size: 14px;
+}
+
+.input-box {
+	width: 100%;
+	height: 40px;
+	padding: 0 10px;
+}
+
+.textarea-box {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    resize: none;
+}
+
+.g-recaptcha {
+    transform:scale(1.26);
+    transform-origin:0 0;
+}
+
+/* 로고 (이미지 및 텍스트) */
+#logoContainer {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-bottom: 20px;
+    margin-left:-5px;
+}
+
+#logoImage {
+    width: 42;
+    height: 42px;
+    margin-bottom: 8px;
+}
+
+#logoText {
+    /*padding-left: 8px;*/
+    font-weight: bold;
+    font-size: 28px;
+    color: #C97FE8;
+}
+
+/* SNS 로그인/회원가입 부분 */
+
+#signSnsBtn {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 1px solid gray;
+  padding-bottom: 30px;
+}
+
+.snsCircle {
+  position: relative;
+  width: 48px; /* 원의 지름의 2배 */
+  height: 48px; /* 원의 지름의 2배 */
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.snsCircle-yellow {
+  background-color: rgb(249, 224, 0);
+}
+
+.snsCircle-green {
+  background-color: rgb(30, 200, 0);
+}
+
+.snsCircle-blue {
+  background-color: rgb(24, 119, 242);
+}
+
+.snsCircle a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.snsCircle img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+.snsCircle p {
+  position: absolute;
+  visibility: hidden;
+}
+
+/* 이메일 */
+#emailInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#emailBtn {
+    width: 100%;
+    margin-top: 8px;
+    height: 45px;
+    font-size: 15px;
+}
+
+#mailCode {
+	width: 70%;
+	margin-top: 10px;
+}
+
+#mailBtn {
+	height: 40px;
+	flex: 1 1 auto;
+	margin-top: 10px;
+}
+
+
+/* 주소 선택 */
+#mapAddress {
+	width: 70%;
+}
+
+#mapBtn {
+	height: 40px;
+	flex: 1 1 auto;
+}
+
+#kakaoMap {
+	width: 100%;
+	height: 250px;
+	display: none;
+	margin-top: 10px;
+}
+
+/* 프로필 이미지 선택 */
+#imagePath {
+	width: 70%;
+}
+
+#displayImagePath {
+    width: 70%;
+}
+
+#imageWrapper {
+    width: 125px;
+    height: 125px;
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+}
+
+#imagePreview {
+    width: 100px;
+    height: 100px;
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#removeImage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    color: #8a8a8a;
+}
+
+
+#imageChoose {
+	height: 40px;
+	flex: 1 1 auto;
+}
+
+/* 약관 동의 */
+#termsInnerContainer {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-between;
+    color: #888;
+} #termsInnerContainer label:first-child {
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    color: black;
+}
+
+/* 회원가입 */
+#submitBtn {
+    height: 50px;
+    width: 100%;
+    font-size: 17px;
+    margin-top: 16px;
+}

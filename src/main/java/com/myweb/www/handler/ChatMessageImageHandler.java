@@ -18,8 +18,7 @@ import net.coobird.thumbnailator.Thumbnails;
 @Component
 public class ChatMessageImageHandler {
 
-//	private final String UP_DIR = "E:\\Workspace\\Spring\\ezen_final_project\\src\\main\\webapp\\resources\\fileUpload\\chat";
-	private final String UP_DIR = "E:\\fileUpload\\chat";
+	private final String UP_DIR = "C:\\upload\\chat";
 
 //	public List<ChatMessageImageVO> uploadFiles(MultipartFile[] files){
 	public ChatMessageImageVO uploadFiles(MultipartFile file){

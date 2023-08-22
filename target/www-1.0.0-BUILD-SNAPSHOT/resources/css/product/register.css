@@ -1,0 +1,268 @@
+@charset "UTF-8";
+
+li{
+	list-style: none;
+}
+
+#register-wrap{
+	position: relative;
+	width: 1024px;
+	height: 100%;
+	margin: 0 auto;
+	padding: 50px 0;
+}
+
+#image-wrap, #cate-wrap, #loca-wrap, #info-wrap, #pay-wrap{
+	height: auto;
+	margin: 50px 0;
+	padding: 50px 0;
+	border-bottom: 1px solid gray;
+	display: flex;
+	align-items: center;
+}
+
+#title-wrap, #price-wrap{
+	height: auto;
+	margin: 50px 0;
+	padding: 50px 0;
+	border-bottom: 1px solid gray;
+	display: flex;
+	align-items: flex-start;
+}
+
+.file-ul{
+	display: flex;
+    width: 700px;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+}
+
+.file-li{
+	width: 202px;
+    height: 202px;
+    position: relative;
+    border: 1px solid rgb(230, 229, 239);
+    background: rgb(250, 250, 253);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: rgb(155, 153, 169);
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.file-li::before{
+	content: "";
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    background-image: url(/resources/image/file.svg);
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.file-input{
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    cursor: pointer;
+    font-size: 0px;
+}
+
+.regi-file{
+	width: 202px;
+    height: 202px;
+    border: 1px solid rgb(230, 229, 239);
+    margin-right: 10px;
+    margin-bottom: 10px;
+    list-style-type: none;
+    position: relative;
+    display: flex;
+    cursor: pointer;
+}
+
+.file-del{
+	width: 20px;
+    height: 20px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    background-image: url(/resources/image/delete.svg);
+    background-color: rgba(30, 29, 41, 0.32);
+    border-radius: 50%;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    border: none;
+	
+}
+
+.register-title{
+	font-size: 18px;
+	font-weight: 600;
+	width: 200px;
+	
+}
+
+#errorFlex{
+	display: flex;
+	flex-direction: column;
+}
+
+#all-title{
+	display: flex;
+	align-items: center;
+}
+
+.title-input{
+	width: 700px;
+	height: 40px;
+	padding: 0 10px;
+	margin-right: 20px;
+}
+
+.input-a{
+	position: absolute;
+    right: 135px;
+    color: rgb(155, 153, 169);
+    text-decoration: underline;
+}
+
+.cate-wrapper{
+	display: flex;
+    width: 284px;
+    height: 19rem;
+    overflow: hidden;
+}
+
+.cate-box{
+	width: 284px;
+    height: 100%;
+    overflow-y: auto;
+    color: rgb(195, 194, 204);
+}
+
+.cate-ul{
+	width: 100%;
+    height: 100%;
+    padding: 0.5rem 0px;
+}
+
+.cate-li{
+	display: flex;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+}
+
+.cate-btn{
+	width: 100%;
+    height: 100%;
+    padding: 0px 1.5rem;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    font-size: 15px;
+}
+
+.cate-btn:hover{
+	background: rgb(244, 244, 250);
+}
+
+.cate-btn-click{
+	width: 100%;
+    height: 100%;
+    padding: 0px 1.5rem;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    font-size: 15px;
+	color: #c97fe8;
+}
+
+#select-cate{
+	margin-top: 15px;
+}
+
+#select-cate input{
+	border: none;
+	cursor: default;
+}
+
+.two-cate{
+	display: flex;
+	flex-direction: column;
+}
+
+#price-all{
+	display: flex;
+	flex-direction: column;
+}
+
+#info-all{
+	display: flex;
+	flex-direction: column;
+}
+
+#regi-info{
+	flex: 1 1 0%;
+	display: flex;
+    align-items: center;
+}
+
+.info-text{
+	width: 700px;
+	resize: none;
+	padding: 10px;
+	margin-right: 20px;
+}
+
+.search-input{
+	width: 670px;
+	height: 40px;
+	padding: 0 10px;
+	margin-right: 20px;
+}
+
+.search-loca-btn{
+	width: 100px;
+	height: 40px;
+}
+
+input[type="radio"] {
+  accent-color: #C97FE8;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+}
+
+.pay-label{
+	margin-right: 20px;
+}
+
+#btn-wrap{
+	display: flex;
+	justify-content : center;
+}
+
+
+.regi-btn{
+	width: 130px;
+	height: 50px;
+	margin-right: 10px;
+	font-size: 15px;
+}
+
+.error-message{
+	color: red;
+	font-size: 12px;
+	margin-top: 5px;
+	width: 700px;
+	height: 40px;
+}

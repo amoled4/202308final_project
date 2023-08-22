@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.BoardLocationDAO">
+	<select id="selectBoardLocation" resultType="com.myweb.www.domain.BoardLocationVO">
+		select * from 
+		(select bl_number from board_location
+		where bl_isDel=0
+		<include refid="categorySearch"></include>
+		order by bl_number desc
+		limit #{pageStart}, #{qty}) a left join board_location b
+		on a.bl_number = b.bl_number 
+	</select>
+	
+	<select id="getTotalCount" resultType="int">
+		select count(bl_number) from board_location where bl_isDel=0
+		<include refid="categorySearch"></include>
+	</select>
+	
+	<insert id="insertBoardLocationRegister">
+		insert into board_location(bl_location, bl_title, bl_writer, bl_content, bl_subject, bl_m_number)
+		values (#{bl_location}, #{bl_title}, #{bl_writer}, #{bl_content}, #{bl_subject}, #{bl_m_number})
+	</insert>
+	
+	<select id="selectBlnumber" resultType="int">
+		select max(bl_number) from board_location
+	</select>
+	
+	<select id="selectblList" resultType="com.myweb.www.domain.BoardLocationVO">
+		select * from board_location where bl_number=#{bl_number}
+	</select>
+	
+	<update id="updateModify">
+		update board_location set bl_title=#{bl_title}, bl_content=#{bl_content}, bl_subject=#{bl_subject}
+		where bl_number=#{bl_number}
+	</update>
+	
+	<update id="updateIsDel">
+		update board_location set bl_isDel=1 where bl_number=#{bl_number}
+	</update>
+	
+	
+	<sql id="categorySearch">
+		<if test="bl_location != null">
+			AND bl_location = #{bl_location}				
+		</if>
+		<if test="keyword != null">
+			AND (bl_title like concat('%', #{keyword}, '%')
+			OR bl_content like concat('%', #{keyword}, '%'))
+		</if>
+	</sql>
+</mapper>

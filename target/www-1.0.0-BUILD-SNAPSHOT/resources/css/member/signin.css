@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+html, body {
+	height:100%;
+}
+
+#container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#innerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: 380px;
+    justify-content: space-between;
+}
+
+/* 로고 */
+#logoContainer {
+	display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right:20px;
+}
+
+#logoImage {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 8px;
+}
+
+#logoText {
+    /*padding-left: 8px;*/
+    font-weight: bold;
+    font-size: 28px;
+    color: #C97FE8;
+}
+
+/* 입력 부분 */
+#idInput, #pwInput {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 5px;
+    padding: 0 10px;
+    font-size: 15px;
+}
+
+#subBtn {
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#signupBtn {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
+} #signupBtn:hover {
+    color: #C97FE8;
+}
+
+/* SNS 로그인/회원가입 부분 */
+#signSnsText {
+	color: gray;
+}
+
+#signSnsBtn {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* SNS 로그인/회원가입 부분 */
+
+#signSnsBtn {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 1px solid gray;
+  padding-bottom: 30px;
+}
+
+.snsCircle {
+  position: relative;
+  width: 48px; /* 원의 지름의 2배 */
+  height: 48px; /* 원의 지름의 2배 */
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.snsCircle-yellow {
+  background-color: rgb(249, 224, 0);
+}
+
+.snsCircle-green {
+  background-color: rgb(30, 200, 0);
+}
+
+.snsCircle-blue {
+  background-color: rgb(24, 119, 242);
+}
+
+.snsCircle a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.snsCircle img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+.snsCircle p {
+  position: absolute;
+  visibility: hidden;
+}

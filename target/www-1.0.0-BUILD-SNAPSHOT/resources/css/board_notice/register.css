@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+	#container {
+	  margin-top: 20px;
+	  margin-bottom :50px;
+	}
+	
+	#inner-box {
+	  width: 1024px;
+	  margin: 0 auto;
+	}
+	
+	.loc-select, .loc-content {
+	    margin-bottom: 8px;
+	 }
+	
+	#container .border-gray {
+	  width: 100%;
+	  box-sizing: border-box;
+	  border: 1px solid #ccc;
+	  border-radius: 4px;
+	  padding: 6px 12px;
+	  font-size: 14px;
+	  margin-bottom: 15px; /* 여백 추가 */
+	}
+	
+	select.border-gray:focus {
+	  outline: none;
+	  border-color: #c97fe8;	  
+	}
+	
+	select.border-gray optgroup {
+	  padding-top: 10px;
+	  padding-bottom: 10px;
+	}
+	
+	select.border-gray option {
+	  padding-top: 10px;
+	  padding-bottom: 10px;
+	}
+	
+	#inner-box h3 {
+	  font-size : 26px;
+	  margin-top: 15px;
+	  margin-bottom: 30px;
+	}
+	
+	#inner-box:not(:first-child) {
+	  margin-top: 5px;
+	}
+	  
+	.file-container {
+ 	  display: flex;
+	  justify-content: space-between;
+	  margin-top:20px;
+	  margin-bottom:40px;
+	 }
+
+ 	 .file-box {
+	    position: relative;
+	    width: 180px;
+	    height: 180px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+  	}
+
+	  .file-box::after {
+	    content: "+";
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    font-size: 30px;
+	    color: #ccc;
+	  }
+	
+	.background-purple {
+    background-color: #C97FE8;
+    color: white;
+  	}
+  	
+  	.attachment-text {
+    color: #666666;
+    font-size: 12px;
+ 	}
+ 	
+ 	.attachment-text:first-child {
+    color: #C97FE8;
+    font-size: 12px;
+    font-weight:700;
+ 	}
+ 	
+    .attachment-text:nth-child(2) {
+      font-size: 12px;
+      font-weight: 700;
+    }
+    
+    
+	<!-- 버튼 -->
+
+	#inner-box {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  flex-wrap: wrap;
+	}
+	
+	.button-container {
+	  display: flex;
+	  justify-content: center;
+	  width: 100%; /* 가로 폭을 100%로 설정 */
+	  margin-top: 20px;
+	  gap: 20px; /* 버튼 사이에 30px의 여백 추가 */
+	}
+	
+	.submit-button {
+	  width: 100px; /* 버튼 가로 크기를 100px로 설정 */
+	  height: 40px;
+	  font-size: 16px;
+	  border: 1px solid ;
+	  border-radius: 5px;
+	}
+	
+	.cancel-button {
+	  border: none; /* 테두리 없음 */
+	}
+	

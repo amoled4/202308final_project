@@ -19,8 +19,7 @@ import lombok.AllArgsConstructor;
 @Component
 @AllArgsConstructor
 public class ProductImageSweeper {
-	private final String UP_DIR = "D:\\_final_project\\ezen_final_project\\src\\main\\webapp\\resources\\fileUpload";
-	//"E:\\Workspace\\ezen_final_project\\src\\main\\webapp\\resources\\fileUpload";
+	private final String UP_DIR = "C:\\upload\\product";
 	@Inject
 	private ProductImageDAO pidao;
 	

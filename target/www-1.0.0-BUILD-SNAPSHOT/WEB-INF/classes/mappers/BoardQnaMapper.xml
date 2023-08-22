@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.BoardQnaDAO">
+	<insert id="insertQna">
+		insert into board_qna(bq_writer, bq_title, bq_content)
+		values (#{bq_writer}, #{bq_title}, #{bq_content})
+	</insert>
+	
+	<select id="selectQnaList" resultType="com.myweb.www.domain.BoardQnaVO">
+		select * from board_qna where bq_isDel = 0 order by bq_number desc
+	</select>
+	
+	<select id="selectQnaDetail" resultType="com.myweb.www.domain.BoardQnaVO">
+		select * from board_qna where bq_number=#{bq_number}
+	</select>
+</mapper>

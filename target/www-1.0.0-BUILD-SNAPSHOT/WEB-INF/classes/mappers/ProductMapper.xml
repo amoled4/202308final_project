@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.ProductDAO">
+	<select id="selectProduct" resultType="com.myweb.www.domain.ProductVO">
+		select * from 
+		(select p_number from product 
+		where p_isDel=0
+		<include refid="categorySearch"></include>
+		order by p_number desc
+		limit #{pageStart}, #{qty}) a left join product b
+		on a.p_number = b.p_number
+	</select>
+	
+	<select id="getTotalCount" resultType="int">
+		select count(p_number) from product where p_isDel=0
+		<include refid="categorySearch"></include>
+	</select>
+	
+	<insert id="insertProductRegister">
+		insert into product (m_number, p_name, p_price, p_category, p_info, p_location, p_pay)
+		values (#{m_number}, #{p_name}, #{p_price}, #{p_category}, #{p_info}, #{p_location}, #{p_pay})
+	</insert>
+	
+	<select id="selectPnumber" resultType="int">
+		select max(p_number) from product
+	</select>
+	
+	<select id="selectPno" resultType="com.myweb.www.domain.ProductVO">
+		select * from product where p_number = #{p_number}
+	</select>
+	
+	<update id="updateStatus">
+		update product set p_status=#{p_status} where p_number=#{p_number}
+	</update>
+	
+	<update id="updateReadCount">
+		update product set p_read_count = p_read_count+1 where p_number=#{p_number}
+	</update>
+	
+	<update id="updateLike">
+		update product set p_like=p_like+1 where p_number=#{p_number}
+	</update>
+	
+	<update id="updateUnlike">
+		update product set p_like=p_like-1 where p_number=#{p_number}
+	</update>
+	
+	<insert id="insertLikeMember">
+		insert into product_like(p_number, m_number)
+		select #{p_number}, #{m_number} from dual
+		where not exists(
+			select p_number, m_number from product_like
+			where p_number = #{p_number} and m_number = #{m_number})
+	</insert>
+	
+	<select id="getLikeRecord" resultType="com.myweb.www.domain.ProductLikeVO">
+		select * from product_like where p_number=#{p_number} and m_number=#{m_number}
+	</select>
+	
+	<delete id="deleteLikeMember">
+		delete from product_like where p_number=#{p_number} and m_number=#{m_number}
+	</delete>
+	
+	<select id="selectProductLike" resultType="com.myweb.www.domain.ProductLikeVO">
+		select * from product_like where p_number = #{p_number} and m_number = #{sesM_number}
+	</select> 
+	
+	<update id="updateModify">
+		update product set p_name=#{p_name}, p_price=#{p_price}, p_category=#{p_category}, p_mod_date=now(),
+		p_info=#{p_info}, p_location=#{p_location}, p_pay=#{p_pay} where p_number=#{p_number}
+	</update>
+	
+	<update id="updateIsDel">
+		update product set p_isDel = 1 where p_number=#{p_number}
+	</update>
+	
+ 	<sql id="categorySearch">
+		<if test="p_category != null">
+			AND p_category = #{p_category}				
+		</if>
+		<if test="keyword != null">
+			AND (p_name like concat('%', #{keyword}, '%')
+			OR p_info like concat('%', #{keyword}, '%'))
+		</if>
+	</sql>
+	
+	
+	<!-- 채팅 기능 구현 (작성자: 조민규) -->
+	<select id="selectProductWithNumber" resultType="com.myweb.www.domain.ProductVO">
+		select * from product where p_number = #{c_number}
+	</select>
+	
+	<!-- 작성자: 안세호 (내 상품 리스트 가져오기) -->
+	<select id="selectProductsByMember" resultType="com.myweb.www.domain.ProductVO">
+	    SELECT * FROM product
+	    WHERE m_number = #{m_number} AND p_isDel = 0
+	</select>
+	
+	<!-- 작성자 : 안세호 (찜한 상품 정보 가져오기)-->
+	<select id="selectLikedProductsByMember" resultType="com.myweb.www.domain.ProductVO">
+	    SELECT * FROM product
+	    WHERE p_number IN (
+	        SELECT p_number FROM product_like WHERE m_number = #{m_number}
+	    ) AND p_isDel = 0
+	</select>
+	
+
+</mapper>

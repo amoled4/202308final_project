@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.MemberDAO">
+	<select id="getMember"
+		resultType="com.myweb.www.domain.MemberVO">
+		select * from member where m_mail=#{m_mail}
+	</select>
+
+	<insert id="insertMember">
+		insert into member(m_mail, m_pw, m_nick_name, m_introduct, m_address)
+		values(#{m_mail}, #{m_pw}, #{m_nick_name}, #{m_introduct},
+		#{m_address})
+	</insert>
+	<!-- 회원가입 닉네임 중복체크 -->
+	<select id="nicknameCheck1" resultType="int">
+		select count(*) from member where m_nick_name = #{m_nick_name}
+	</select>
+	<!-- 회원정보수정 닉네임 중복체크 -->
+	<select id="nicknameCheck" resultType="int">
+		select count(*) from member where m_nick_name = #{m_nick_name} and m_number != #{m_number}
+	</select>
+	
+	<select id="emailCheck" resultType="int">
+		select count(*) from member where m_mail = #{m_mail}
+	</select>
+
+	<select id="getNewMember" parameterType="string"
+		resultType="com.myweb.www.domain.MemberVO">
+		select *
+		from member
+		where m_mail = #{m_mail}
+		ORDER BY m_number DESC
+		LIMIT 1
+	</select>
+	
+	<update id="updateMember" parameterType="com.myweb.www.domain.MemberVO">
+	    UPDATE member SET
+	    m_pw = #{m_pw},
+	    m_nick_name = #{m_nick_name},
+	    m_introduct = #{m_introduct},
+	    m_address = #{m_address}
+	    WHERE m_number = #{m_number}
+	</update>
+	
+
+	<!-- 회원탈퇴 기능 -->
+	<update id="updateMemberStatus" parameterType="map">
+	    UPDATE member SET m_isDel = #{isDel} WHERE m_number = #{m_number}
+	</update>
+
+
+
+	
+
+	<!-- 채팅 -->
+	<select id="selectMemberWithNumber"
+		resultType="com.myweb.www.domain.MemberVO">
+		select * from member where m_number = #{m_number}
+	</select>
+	
+	<!-- product 작성자:김경아 -->
+	<select id="getMemberProduct" resultType="com.myweb.www.domain.MemberVO">
+		select * from member where m_number=#{m_number}
+	</select>
+	<select id="getBoardLocationMember" resultType="com.myweb.www.domain.MemberVO">
+		select * from member where m_number=#{bl_m_number}
+	</select>
+
+</mapper>

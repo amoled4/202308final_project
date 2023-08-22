@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myweb.www.repository.ProductReviewDAO">
+	<insert id="insertReview">
+		insert into product_review(pr_buyer, pr_seller, pr_p_number, pr_score, pr_content)
+		values (#{pr_buyer}, #{pr_seller}, #{pr_p_number}, #{pr_score}, #{pr_content})
+	</insert>
+	
+	<select id="selectPrvol" resultType="com.myweb.www.domain.ProductReviewVO">
+		select * from product_review where pr_seller=#{m_number}
+	</select>
+	<select id="selectPrvo" resultType="com.myweb.www.domain.ProductReviewVO">
+		select * from product_review where pr_p_number=#{p_number} and pr_buyer=#{sesM_number}
+	</select>
+	
+	<!-- <select id="selectReviewList" resultType="com.myweb.www.domain.ProductReviewVO">
+		select * from product_review where pr_seller=#{m_number}
+	</select> -->
+	
+	<select id="getTotalRvCount" resultType="int">
+		select count(pr_number) from product_review where pr_isDel=0
+	</select>
+	
+	<select id="selectReviewList" resultType="com.myweb.www.domain.ProductReviewVO">
+		select * from product_review
+		where pr_isDel=0
+		order by pr_number desc
+		limit #{pageStart}, #{qty}
+	</select>
+</mapper>
